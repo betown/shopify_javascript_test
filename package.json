@@ -1,7 +1,7 @@
 {
-  "name": "js-advenced-test-unsolved",
+  "name": "shopify-javascript-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "Contains the structure simmulating a Recharge App integration where some non-out-of-the-box feature had to be built for a client requirement.",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
