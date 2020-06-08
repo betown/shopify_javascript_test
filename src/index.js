@@ -113,7 +113,7 @@ window.SecondProduct = {
       }
     ],
     id: "ExtraProductSubId",
-    subscription_type: "recurring"
+    subscription_type: "prepaid"
   }
 };
 
@@ -132,13 +132,15 @@ function changeTemplateData(e) {
 
   switch (value) {
     case "subscription":
-      $("#variantId").attr("name", "");
+      $("#variant-id").attr("name", "");
       $("[data-clone-variant]").attr("name", "variant_id");
       $("[data-subscription-id]").attr("name", "subscription-id");
       break;
 
     case "regular":
-      $("#variantId").attr("name", "varaint-id");
+      $("#variant-id").attr("name", "varaint_id");
+      $("[data-clone-variant]").attr("name", "");
+      $("[data-subscription-id]").attr("name", "");
       break;
     default:
       break;
