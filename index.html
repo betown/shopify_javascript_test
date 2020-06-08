@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product SandBox</title>
+    <meta charset="UTF-8" />
+  </head>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+
+  <body>
+    <div id="product"></div>
+    <div id="result"></div>
+    <script src="src/index.js"></script>
+    <script src="tests.js"></script>
+    <hr />
+    <div id="tests" class="row">
+      <div class="passed-tests col-sm-12" style="display:none;">
+        <label>
+          Passed tests: <span class="passed-tests__count"></span> / 3</label
+        >
+        <ul class="passed-tests__list"></ul>
+      </div>
+      <div class="failed-tests">
+        <label>
+          Failed tests: <span class="failed-tests__count"></span> / 3</label
+        >
+        <ul class="failed-tests__list"></ul>
+      </div>
+    </div>
+
+    <script id="product-data" type="text/x-handlebars-template">
+      <h1 class="text-center">{{name}}</h1>
+      <form class="col-sm-12" action="#">
+        <input type="hidden" name="id" value="{{id}}" data-base-product-id/>
+        <div class="form-group">
+          <select name="variant_id" id="variant-id" class="form-control">
+            {{#each variants}}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="regular-product-radio"
+            name="subscription_type"
+            value="regular"
+            checked="true"
+          />
+          <label>Regular product</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="subscription-product-radio"
+            name="subscription_type"
+            value="subscription"
+          />
+          <label>Subscription product</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="extra-product-radio"
+            name="subscription_type"
+            value="third-product"
+        />
+        <label>Prepaid Product</label>
+            </div>
+            {{#with subscription_data}}
+            <input
+              type="hidden"
+              name=""
+              data-subscription-id
+              value="{{subscription_id}}"
+              />
+            <input
+              type="hidden"
+              name=""
+              data-subscription-type
+              value="{{subscription_type}}"
+            />
+        <select name="" data-clone-variant hidden>
+          {{#each variants}}
+            <option value="{{id}}">{{name}}</option>
+          {{/each}}
+        </select>
+        {{/with}}
+      </form>
+    </script>
+  </body>
+</html>
